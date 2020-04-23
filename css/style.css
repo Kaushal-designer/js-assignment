@@ -45,6 +45,7 @@ button {
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
 	margin-top: 20px;
+	cursor: pointer;
 }
 button:active {
 	transform: scale(0.95);
@@ -268,6 +269,9 @@ input:focus, select:focus {
 	color: #6f6f6f;
 	font-size: 16px;
 }
+.inner-right-container ul li a.chat i {
+	margin-right: 5px;
+}
 .inner-right-container ul li a.active, 
 .footer-onclick ul li a.active {
 	border-bottom: 2px solid #00796b;
@@ -330,6 +334,7 @@ input:focus, select:focus {
 	align-items: center;
 	justify-content: center;
 	margin: 0 8px;
+	cursor: pointer;
 }
 .call-details span i {
     font-size: 22px;
@@ -376,7 +381,7 @@ input:focus, select:focus {
     justify-content: space-between !important;
 }
 .call-details, .rest-option {
-	width: 35%;
+	width: 30%;
 }
 .footer-onclick ul li {
 	padding: 10px 15px;
@@ -406,4 +411,48 @@ input:focus, select:focus {
 }
 .footer-onclick ul li a i{
 	font-size: 18px;
+}
+
+
+.member-wrp ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.member-wrp ul li{
+  width: 650px;
+  background: rgba(255, 255, 255, 0.1);
+  text-align: center;
+  padding: 10px 20px 20px;
+}
+.member-wrp ul li > div{
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.member-wrp ul li > div img {
+    height: 160px;
+    width: 160px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.member-wrp ul li > p{
+  margin: 10px 0;
+  text-align: left;
+  color: #fff;
+  font-size: 18px;
+}
+.member-wrp ul li > p > i {
+  margin-right: 5px;
+  color: red;
 }
