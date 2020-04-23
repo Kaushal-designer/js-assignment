@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Video Call Application</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css">
+    	body {margin: -20px 0 50px;}
+    </style>
+  </head>
+  <body>
+	<div class="container" id="container">
+		<div class="form-container sign-up-container">
+			<form action="#">
+				<input type="text" placeholder="Room Name" />
+				<input type="text" placeholder="Your Name" />
+				<select id="mySelect">
+				  <option>Room type</option>
+				  <option>One-to-One</option>
+				  <option>One-to-Two</option>
+				  <option>One-to-Three</option>
+				</select>
+				<button onclick="location.href = 'chat-window.html';" >Join</button>
+			</form>
+		</div>
+		<div class="form-container sign-in-container">
+			<img src="images\logo-1.png">
+			<h2>Let's Go</h2>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Summary</h1>
+					<ul>
+						<li>
+							<div>
+								<p>All things</p>
+								<p class="circle"></p>
+							</div>
+						</li>
+						<li>
+							<div>
+								<p>All things <span class="color-circle green"></span></p>
+								<p class="circle"></p>
+							</div>
+						</li>
+						<li>
+							<div>
+								<p>All things <span class=" color-circle blue"></span></p>
+								<p class="circle"></p>
+							</div>
+						</li>
+						<li>
+							<div>
+								<p>All things <span class="color-circle gray"></span></p>
+								<p class="circle"></p>
+							</div>
+						</li>
+					</ul>
+					<button class="all-btn" id="signIn">Back</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Hi!</h1>
+					<p>Nothing to do yet, Think about it and let's start!</p>
+					<button class="all-btn" id="signUp">Click to Login</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	document.addEventListener( 'DOMContentLoaded', function(e) {
+	  var signUpBtn = document.getElementById('signUp');
+	  var signInBtn = document.getElementById('signIn');
+	  var container = document.getElementById('container');
+
+	  signUpBtn.addEventListener("click", function() {
+	    container.classList.add("right-panel-active");
+	  });
+
+	  signInBtn.addEventListener("click", function() {
+	    container.classList.remove("right-panel-active");
+	  });
+	});
+	</script>
+  </body>
+</html>

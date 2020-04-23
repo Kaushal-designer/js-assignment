@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Video Call Application</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css">
+    	body {	margin: 0px 0;}
+    </style>
+  </head>
+  <body>
+  	<div class="chat-container">
+  		<div class="inner-right-container go-down" id="chat-option">
+  			<ul>
+  				<li><a href="#" class="active people"><i class="fa fa-users" aria-hidden="true"></i> Pople</a></li>
+          <li><a href="#" class="chat"><i class="fa fa-comment" aria-hidden="true"></i>Chat</a></li>
+  			</ul>
+  		</div>
+  		<div class="inner-right-container" id="chat-container-ele">
+  			<ul>
+  				<li><a href="#" class="active people"><i class="fa fa-users" aria-hidden="true"></i> Pople</a></li>
+  				<li><a href="#" class="chat"><i class="fa fa-comment" aria-hidden="true"></i>Chat</a></li>
+  			</ul>
+  			<div class="msg-container">
+  				<input type="text" placeholder="Send A message to everyone" />
+  			</div>
+  		</div>
+      <div class="footer-onclick" id="footer-onclick" style="display: none;">
+        <ul>
+          <li>
+          <a href="#" class="active"><i class="fa fa-info-circle" aria-hidden="true"></i> Details</a>
+          </li>
+          <li>
+          <a href=""><i class="fa fa-info-circle" aria-hidden="true"></i> Details</a>
+          </li>
+        </ul>
+      </div>
+
+  		<div class="footer-container">
+  			<ul>
+  				<li class="meeting-detals">
+  					<div>
+  						<a href="javascript:void(0);" id="meeting-details">Meeting Detals <i class="fa fa-angle-up" aria-hidden="true"></i></a>
+  					</div>
+  				</li>
+  				<li class="call-details">
+  					<div>
+  						<span><i class="fa fa-microphone" aria-hidden="true"></i></span>
+  						<span class="call"><i class="fa fa-phone" aria-hidden="true"></i></span>
+  						<span class="video"><i class="fa fa-video-camera" aria-hidden="true"></i></span>
+  					</div>
+  				</li>
+  				<li class="rest-option">
+  					<div class="turn-on">
+  						<a href="#">
+  							<span><i class="fa fa-cc" aria-hidden="true"></i></span>
+  							<span>Turn On </span>
+  						</a>
+  					</div>
+  					<div class="present-now">
+  						<a href="#">
+						<span><i class="fa fa-caret-square-o-up" aria-hidden="true"></i></span>
+  						<span>Present Now</span>
+  					</a>
+  					</div>
+  					<div class="present-now">
+  						<a href="#"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+  					</div>
+  				</li>
+  			</ul>
+  		</div>
+  	</div>
+
+  <script type="text/javascript">
+		document.addEventListener( 'DOMContentLoaded', function(e) {
+    //Start chat option
+			var chatOpt = document.getElementById('chat-option');
+			var msgEle = document.getElementById('chat-container-ele');
+			chatOpt.addEventListener( 'click', function() {
+				chatOpt.classList.add( 'go-up');
+				msgEle.classList.add('right-to-left');
+			});
+
+			document.addEventListener( 'click', function(e) {
+				if( !msgEle.contains(e.target) && !chatOpt.contains(e.target) ) {
+					chatOpt.classList.remove( 'go-up');
+					msgEle.classList.remove('right-to-left');
+				}
+			});
+    //End chat option
+
+    //start footer popup
+      var meet_ele = document.getElementById('meeting-details');
+      meet_ele.addEventListener( 'click', function() {
+        var footPop = document.getElementById('footer-onclick');
+        if( footPop.style.display == 'none' ) {
+          footPop.style.display = 'block';
+        } else {
+          footPop.style.display = 'none';
+        }
+      });
+    //End footer popup
+
+    //chat option active
+      function removeClassFun(elements, className) {
+        for(var i=0; i<elements.length; i++ ) {
+          elements[i].classList.remove(className);
+        }
+      }
+
+      function addClassFun(elements, className) {
+        for(var i=0; i<elements.length; i++ ) {
+          elements[i].classList.add(className);
+        }
+      }
+
+      var chatElements = document.getElementsByClassName('chat');
+      var peopleElements = document.getElementsByClassName('people');
+
+      for( var i=0; i<peopleElements.length; i++ ) {
+
+        var element = peopleElements[i];
+        element.addEventListener('click', function(e){
+          removeClassFun(chatElements, 'active');
+          addClassFun(peopleElements, 'active');
+        });
+      }
+      var chatElements = document.getElementsByClassName('chat');
+      for( var i=0;i<chatElements.length; i++ ) {
+        var element = chatElements[i];
+        element.addEventListener('click', function(e){
+          removeClassFun(peopleElements, 'active');
+          addClassFun(chatElements, 'active');
+        });
+      }
+    //chat option active  
+
+		});
+
+	</script>
+  </body>
+  </html>
